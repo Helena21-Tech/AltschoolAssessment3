@@ -1,0 +1,15 @@
+from sqlalchemy import String, func
+from sqlalchemy.orm import Mapped, mapped_column, relationship
+from app.core.db_async import Base
+from datetime import datetime
+
+class Teacher(Base):
+    __tablename__ = "teachers"
+
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
+    name: Mapped[str] = mapped_column(String(255), nullable=False, index=True)
+    email: Mapped[str] = mapped_column(String(255), unique=True, nullable=False, index=True)
+    created_at: Mapped[datetime] = mapped_column(dserver_default=func.now())
+
+    # Relationships
+    comments: Mapped[list["Comment"]] = relationship("Comment", back_populates="teacher")
