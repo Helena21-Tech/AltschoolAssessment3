@@ -11,8 +11,9 @@ class AssignmentBase(BaseModel):
 class AssignmentCreate(AssignmentBase):
     pass
 
-class Assignment(AssignmentBase):
+class AssignmentRead(AssignmentBase):
     id: int
 
-    class Config:
-        orm_mode = True
+    model_config = {
+        "from_attributes": True
+    }

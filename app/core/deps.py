@@ -12,7 +12,7 @@ def get_db():
         db.close()
 
 # Async
-async def get_db():
+async def get_async_db():
     async with AsyncSessionLocal() as db: #already a context so no need for db.close()
         yield db
 

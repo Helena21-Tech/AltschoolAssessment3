@@ -8,8 +8,9 @@ class TeacherBase(BaseModel):
 class TeacherCreate(TeacherBase):
     pass
 
-class Teacher(TeacherBase):
+class TeacherRead(TeacherBase):
     id: int
 
-    class Config:
-        orm_mode = True
+    model_config = {
+        "from_attributes": True
+    }

@@ -2,6 +2,11 @@ from sqlalchemy import String, ForeignKey, Text, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.core.db_async import Base
 from datetime import datetime
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from app.models.teachers import Teacher
+    from app.models.assignments import Assignment
 
 class Comments(Base):
     __tablename__ = "comments"
