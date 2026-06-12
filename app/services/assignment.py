@@ -24,6 +24,11 @@ class AssignmentService:
         return result.scalars().all()
     
     @staticmethod
+    async def get_by_id(db: AsyncSession, id:int):
+        result = await db.execute(select(Assignment).where(Assignment.id == id))
+        return result.scalars().first()
+    
+    @staticmethod
     async def add_comment_to_assignment(db: AsyncSession, assignment_id: int, teacher_name: str, comment: str):
         result = await db.execute(select(Assignment).where(Assignment.id == assignment_id))
         assignment = result.scalars().first()

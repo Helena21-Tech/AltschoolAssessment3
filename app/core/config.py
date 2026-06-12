@@ -14,6 +14,7 @@ class Settings(BaseSettings):
     # default is your local dev DB; can be overridden with env DATABASE_URL
     DATABASE_URL_ASYNC: str = ""
     DATABASE_URL: str = ""
+    TEST_DATABASE_URL_ASYNC: str = ""
 
     # Pydantic v2 settings config
     model_config = SettingsConfigDict(

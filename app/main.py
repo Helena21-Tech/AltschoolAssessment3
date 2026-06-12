@@ -5,6 +5,6 @@ from app.api.v1.students import student_router
 
 
 app = FastAPI()
-app.include_router(assignment_router, prefix="/api/v1/assignments", tags=["assignments"])
-app.include_router(teacher_router, prefix="/api/v1/teachers", tags=["teachers"])
-app.include_router(student_router, prefix="/api/v1/students", tags=["students"])
+app.include_router(assignment_router, prefix="/api/v1")
+app.include_router(teacher_router, prefix="/api/v1")
+app.include_router(student_router, prefix="/api/v1")

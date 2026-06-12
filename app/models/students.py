@@ -2,11 +2,6 @@ from sqlalchemy import String, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.core.db_async import Base
 from datetime import datetime
-from typing import TYPE_CHECKING
-
-
-if TYPE_CHECKING:
-    from app.models.assignments import Assignment
 
 class Student(Base):
     __tablename__ = "students"
@@ -16,5 +11,4 @@ class Student(Base):
     email: Mapped[str] = mapped_column(String(255), unique=True, nullable=False, index=True)
     created_at: Mapped[datetime] = mapped_column(server_default=func.now())
 
-    # Relationships
-    assignments: Mapped[list["Assignment"]] = relationship("Assignment", back_populates="student")
+   
